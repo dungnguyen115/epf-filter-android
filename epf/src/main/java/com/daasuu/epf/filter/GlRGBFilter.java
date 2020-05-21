@@ -32,9 +32,6 @@ public class GlRGBFilter extends GlFilter {
             "      lowp vec3 greyScaleColor = vec3(luminance);\n" +
             "      \n" +
             "      gl_FragColor = vec4(textureColor.r * red, textureColor.g * green, textureColor.b * blue, 1.0);\n" +
-            "      gl_FragColor = vec4((textureOtherColor.rgb + vec3(brightness)), textureOtherColor.w);\n" +
-            "      gl_FragColor = vec4(mix(greyScaleColor, textureColor.rgb, saturation), textureOtherColor.w);\n" +
-            "      gl_FragColor = vec4(((textureOtherColor.rgb - vec3(0.5)) * contrast + vec3(0.5)), textureOtherColor.w);\n" +
             "  }\n";
 
     public GlRGBFilter() {
@@ -77,8 +74,8 @@ public class GlRGBFilter extends GlFilter {
         GLES20.glUniform1f(getHandle("red"), red);
         GLES20.glUniform1f(getHandle("green"), green);
         GLES20.glUniform1f(getHandle("blue"), blue);
-        GLES20.glUniform1f(getHandle("brightness"), brightness);
-        GLES20.glUniform1f(getHandle("saturation"), saturation);
-        GLES20.glUniform1f(getHandle("contrast"), contrast);
+//         GLES20.glUniform1f(getHandle("brightness"), brightness);
+//         GLES20.glUniform1f(getHandle("saturation"), saturation);
+//         GLES20.glUniform1f(getHandle("contrast"), contrast);
     }
 }
