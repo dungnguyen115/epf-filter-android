@@ -77,6 +77,7 @@ class EPlayerRenderer extends EFrameBufferObjectRenderer implements SurfaceTextu
 
     @Override
     public void onSurfaceCreated(final EGLConfig config) {
+        try {
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         final int[] args = new int[1];
@@ -117,7 +118,9 @@ class EPlayerRenderer extends EFrameBufferObjectRenderer implements SurfaceTextu
         }
 
         GLES20.glGetIntegerv(GL_MAX_TEXTURE_SIZE, args, 0);
-
+         } catch (Exception e) {
+            Log.d("Error Dungn: ", e.toString());
+        }
     }
 
     @Override
